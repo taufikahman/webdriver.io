@@ -1,3 +1,4 @@
+import * as os from "os";
 export const config = {
     //
     // ====================
@@ -123,7 +124,23 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [
+    "spec",
+    [
+      "allure",
+      {
+        outputDir: "allure-results",
+        issueLinkTemplate: "https://issues.example.com/{}",
+        tmsLinkTemplate: "https://tms.example.com/{}",
+        reportedEnvironmentVars: {
+          os_platform: os.platform(),
+          os_release: os.release(),
+          os_version: os.version(),
+          node_version: process.version,
+        },
+      },
+    ],
+  ],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
