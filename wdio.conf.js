@@ -55,7 +55,7 @@ export const config = {
         acceptInsecureCerts: true,
 
         'goog:chromeOptions': {
-           args: ['--headless', '--disable-gpu','--disable-dev-shm-usage']
+          //  args: ['--headless', '--disable-gpu','--disable-dev-shm-usage']
         },
 
 
