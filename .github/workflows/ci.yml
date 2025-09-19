@@ -1,5 +1,5 @@
 name: E2E Tests
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,17 +10,17 @@ jobs:
         - name: 🐢 Setup Node
           uses: actions/setup-node@v4
           with:
+            node-version: 20
             node-version-file: '.nvmrc'
 
         - name: 🏗️ Install Dependencies
           run: npm install
 
         - name: 🧪 Test
-          run: npm run test:local
+          run: npm run wdio
  
         - name: 📦 Upload Logs
           uses: actions/upload-artifact@v4
-          if: failure()
           with:
-            name: logs
-            path: logs
+            name: allureReport
+            path: ./allure-report
