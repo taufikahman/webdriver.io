@@ -9,15 +9,19 @@ class LoginPage extends Page {
      * define selectors using getter methods
      */
     get inputUsername () {
-        return $('#username');
+        return $('#Email');
     }
 
     get inputPassword () {
-        return $('#password');
+        return $('#Password');
     }
 
     get btnSubmit () {
-        return $('button[type="submit"]');
+        return $('//button[normalize-space()="Log in"]');
+    }
+
+     get messageFailed () {
+        return $("//li[normalize-space()='No customer account found']");
     }
 
     /**
@@ -29,6 +33,8 @@ class LoginPage extends Page {
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
     }
+
+    
 
     /**
      * overwrite specific options to adapt it to page object

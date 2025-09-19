@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2032","should login with valid credentials","","2025-09-20","passed","2025-09-20","","My Login application","",""
+"","4010","should login with valid credentials","","2025-09-19","passed","2025-09-19","","My Login application","",""

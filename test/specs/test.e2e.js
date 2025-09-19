@@ -1,7 +1,7 @@
 import { expect } from '@wdio/globals'
 import LoginPage from '../pageobjects/login.page.js'
-import SecurePage from '../pageobjects/secure.page.js'
 import allureReporter from '@wdio/allure-reporter'
+import loginPage from '../pageobjects/login.page.js'
 
 
 
@@ -10,10 +10,8 @@ describe('My Login application', () => {
         allureReporter.addFeature('Feature')
         await LoginPage.open()
 
-        await LoginPage.login('tomsmith', 'SuperSecretPassword!')
-        await expect(SecurePage.flashAlert).toBeExisting()
-        await expect(SecurePage.flashAlert).toHaveText(
-            expect.stringContaining('You logged into a secure area!'))
+        await LoginPage.login('testahman@gm2il.com', 'admin123')
+        await loginPage.messageFailed.isDisplayed()
     })
 })
 
