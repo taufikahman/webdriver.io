@@ -11,7 +11,7 @@ jobs:
           uses: actions/setup-node@v4
           with:
             node-version: 20
-            node-version-file: '.nvmrc' #optional
+            node-version-file: '.nvmrc'
 
         - name: 🏗️ Install Dependencies
           run: npm install
