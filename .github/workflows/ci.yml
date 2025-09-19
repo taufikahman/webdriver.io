@@ -24,6 +24,8 @@ jobs:
 
         - name: 🔓 Fix wdio permissions
           run: chmod +x ./node_modules/.bin/allure
+
+        - name: 🔓 Fix allure permissions
           run: chmod +x ./node_modules/allure-commandline/dist/bin/allure
 
         - name: 📊 Generate Allure Report
