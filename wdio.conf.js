@@ -1,3 +1,4 @@
+import * as os from "os";
 export const config = {
     //
     // ====================
@@ -50,7 +51,14 @@ export const config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
+        browserName: 'chrome',
+        acceptInsecureCerts: true,
+
+        'goog:chromeOptions': {
+          //  args: ['--headless', '--disable-gpu','--disable-dev-shm-usage']
+        },
+
+
     }],
 
     //
@@ -123,7 +131,11 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
